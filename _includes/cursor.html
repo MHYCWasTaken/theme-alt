@@ -1,0 +1,60 @@
+<style>
+    #cursor {
+        position: fixed;
+        width: 16px;
+        height: 16px;
+        background: #000;
+        border-radius: 8px;
+        opacity: 0.25;
+        z-index: 10086;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        transition-property: background, opacity, transform;
+    }
+
+    #cursor.hidden {
+        opacity: 0;
+    }
+
+    #cursor.hover {
+        opacity: 0.1;
+        transform: scale(2.5);
+    }
+
+    #cursor.active {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+
+    /*************************/
+</style>
+<script>
+    // redirect来自 https://blog.csdn.net/xyinzhe/article/details/99570283
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        } else {
+            document.write('<script type="text/javascript" charset="utf-8" src="assets/javascript/cursor.js"><\/script>');
+        }
+    }
+    browserRedirect();
+
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v2b4487d741ca48dcbadcaf954e159fc61680799950996"
+    integrity="sha512-D/jdE0CypeVxFadTejKGTzmwyV10c1pxZk/AqjJuZbaJwGMyNHY3q/mTPWqMUnFACfCTunhZUVcd4cV78dK1pQ=="
+    data-cf-beacon='{"rayId":"7ba6306aef949e62","version":"2023.3.0","r":1,"token":"74f4943bdb7c45ecb3f019b5cfc864d2","si":100}'
+    crossorigin="anonymous"></script>
+
+<!--
+鼠标指针来自
+https://tiy.xecades.xyz/?file=Cursor
+https://zhuanlan.zhihu.com/p/351951477
+-->
